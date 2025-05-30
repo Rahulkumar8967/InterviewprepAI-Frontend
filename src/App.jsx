@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import LandingPage from "./pages/InterviewPrep/LandingPage";
-// import Login from "./pages/Auth/Login";
-// import SignUp from "./pages/Auth/SignUp";
+import Login from "./pages/Auth/Login";
+import SignUp from "./pages/Auth/SignUp";
 import Dashboard from "./pages/Home/Dashboard";
 import InterviewPrep from "./pages/InterviewPrep/InterviewPrep";
 
@@ -16,8 +16,8 @@ const App = () => {
           {/* Default Route */}
           <Route path="/" element={<LandingPage />} />
 
-          {/* <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
 
           <Route path="/dashboard" element={<Dashboard />} />
           <Route
