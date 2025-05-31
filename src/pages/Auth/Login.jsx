@@ -9,11 +9,37 @@ const Login = ({ setCurrentPage }) => {
 
   const navigate = useNavigate();
 
-  // Handle Login Form Submit
   const handleLogin = async (e) => {
     e.preventDefault();
-  };
 
+    // Basic validation
+    if (!email || !password) {
+      return setError("All fields are required.");
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return setError("Enter a valid email address.");
+    }
+    if (password.length < 8) {
+      return setError("Password must be at least 8 characters.");
+    }
+    setError("");
+
+// Login Api Called
+    try {
+      console.log("Logging in:", email, password);
+      navigate("/home");
+    } catch (err) {
+      if (err.response && err.response.data.message) {
+        setError(err.response.data. message);
+      } else {
+        setError("Login failed. Please try again.");
+      }
+    }
+  };
+  
 
   return (
     <div className="w-[90vw] md:w-[33vw] p-7 flex flex-col justify-center">
